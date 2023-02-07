@@ -13,12 +13,6 @@ function Home() {
                 <li>
                     <Link to="/UseEffect">useEffect</Link>
                 </li>
-                <li>
-                    <a href="/">d</a>
-                </li>
-                <li>
-                    <a href="/">f</a>
-                </li>
             </ul>
         </>
     );
