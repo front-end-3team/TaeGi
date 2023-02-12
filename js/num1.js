@@ -3,7 +3,7 @@ function max_value() {
     const a = [4, 5, 9, 2, 1, 3];
     a.sort();
     a.reverse();
-
+    console.log("Test");
     const max1 = Math.max(...a);
     const min1 = Math.min(...a);
 
