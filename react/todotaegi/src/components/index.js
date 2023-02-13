@@ -16,17 +16,17 @@ function LoginIndex() {
                 <button onClick={onLogin}>Login</button>
                 <button onClick={onLogin}>회원가입</button>
             </Header>
-
             {text === "Login" ? <Login /> : <SignUp />}
         </Box>
     );
 }
 export default LoginIndex;
 
-const Box = styled.div`
+const Box = styled.form`
     display: flex;
     flex-direction: column;
 `;
+
 const Header = styled.div`
     display: flex;
     justify-content: center;
