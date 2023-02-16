@@ -4,16 +4,15 @@ function Q2() {
     const [forceRender, setForceRender] = useState(false);
 
     const inputChange = useRef();
-
+    const arr = useRef([]);
     //2-1번
-    const arr = [];
+
     const onAddList = () => {
-        arr.push({ value: inputChange.current.value });
+        setForceRender((prev) => !prev);
+        arr.current.push({ value: inputChange.current.value });
+        console.log(arr.current);
     };
-    const onMakeList = () => {
-        setForceRender(true);
-        console.log(forceRender);
-    };
+    const onMakeList = () => {};
 
     //2-2번
     const colorChange = useRef();
@@ -29,6 +28,8 @@ function Q2() {
 
         추가 버튼을 누르면 input에 있던 value는 배열 arr에 추가됩니다.
         그러나, 추가 버튼을 누를 때마다 강제 랜더링 상태가 무조건 적으로 업데이트 됩니다.
+
+        
 
         이러한 상황에서 제출버튼을 누르면
         
@@ -67,9 +68,12 @@ function Q2() {
                 <p>
                     <button onClick={onMakeList}>제출</button>
                 </p>
-
                 <p>제출된 목록이 없습니다</p>
-                <ul>{forceRender ? arr.map((el) => <li>el</li>) : ""}</ul>
+                <ul>
+                    {arr.current.map((el) => (
+                        <li>{el.value}</li>
+                    ))}
+                </ul>
             </div>
             <div>
                 <h2>문제 2-2</h2>
