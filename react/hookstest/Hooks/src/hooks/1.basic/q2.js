@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 
 function Q2() {
     const [forceRender, setForceRender] = useState(false);
-
+    const [state, setState] = useState(false);
     const inputChange = useRef();
     const arr = useRef([]);
     //2-1번
@@ -10,9 +10,12 @@ function Q2() {
     const onAddList = () => {
         setForceRender((prev) => !prev);
         arr.current.push({ value: inputChange.current.value });
-        console.log(arr.current);
+        setState(false);
     };
-    const onMakeList = () => {};
+
+    const onMakeList = () => {
+        setState(true);
+    };
 
     //2-2번
     const colorChange = useRef();
@@ -62,17 +65,19 @@ function Q2() {
                 <p>
                     <input ref={inputChange} />
                 </p>
+
                 <p>
                     <button onClick={onAddList}>추가</button>
                 </p>
                 <p>
                     <button onClick={onMakeList}>제출</button>
                 </p>
-                <p>제출된 목록이 없습니다</p>
                 <ul>
-                    {arr.current.map((el) => (
-                        <li>{el.value}</li>
-                    ))}
+                    {state ? (
+                        arr.current.map((el) => <li>{el.value}</li>)
+                    ) : (
+                        <p>제출된 목록이 없습니다</p>
+                    )}
                 </ul>
             </div>
             <div>
