@@ -1,39 +1,51 @@
+import { useState } from "react";
+
 import PlayListMock from "../../__mock__/playList.json";
 
 function State1() {
-    /* 
-    문제 1.
+    const [list, setList] = useState(PlayListMock.playlist);
+    const [title, setTitle] = useState();
+    const [singer, setSinger] = useState();
+    const [state, setState] = useState(false);
 
-    state를 다루기 위한 기초 문제입니다.
-    음악 목록 10가지의 mock data가 있습니다.
-
-    아래에 추가버튼을 눌러 목록에 리스트를 추가하고 
-    삭제 버턴을 눌렀을 때 데이터가 삭제될 수 있도록 해주세요
-  */
-
-    console.log(PlayListMock.playlist);
-    /* 데이터 콘솔에 찍어두었으니 확인해볼 것 */
-
+    const onChangeTitle = (el) => {
+        setTitle(el.target.value);
+    };
+    const onChangeSinger = (el) => {
+        setSinger(el.target.value);
+    };
+    const onClickAddList = (el) => {
+        list.push({ title: title, signer: singer });
+        setState((prev) => !prev);
+    };
+    const removeTitle = (title) => {
+        setList(list.filter((el) => el.title !== title));
+        console.log(title);
+    };
     return (
         <>
             <h1>문제1</h1>
             <ul>
-                {/* list */}
-                {/* 예시 데이터입니다 */}
-                <li>
-                    <h3>Summer</h3>
-                    <p>Joe Hisaishi</p>
-                </li>
+                {list.map((el) => (
+                    <li>
+                        <h3>{el.title}</h3>
+                        <p>{el.signer}</p>
+                        <button onClick={() => removeTitle(el.title)}>
+                            삭제
+                        </button>
+                        <hr />
+                    </li>
+                ))}
             </ul>
             <div>
                 <p>
-                    곡명 : <input />
+                    곡명 : <input onChange={onChangeTitle} />
                 </p>
                 <p>
-                    가수/작곡 : <input />
+                    가수/작곡 : <input onChange={onChangeSinger} />
                 </p>
                 <p>
-                    <button>추가</button>
+                    <button onClick={onClickAddList}>추가</button>
                 </p>
             </div>
         </>

@@ -2,19 +2,19 @@ import { useRef, useState } from "react";
 
 function Q2() {
     const [forceRender, setForceRender] = useState(false);
-    const [state, setState] = useState(false);
+    const [view, setView] = useState(false);
     const inputChange = useRef();
     const arr = useRef([]);
+
     //2-1번
 
     const onAddList = () => {
         setForceRender((prev) => !prev);
         arr.current.push({ value: inputChange.current.value });
-        setState(false);
     };
 
     const onMakeList = () => {
-        setState(true);
+        setView(true);
     };
 
     //2-2번
@@ -31,9 +31,8 @@ function Q2() {
 
         추가 버튼을 누르면 input에 있던 value는 배열 arr에 추가됩니다.
         그러나, 추가 버튼을 누를 때마다 강제 랜더링 상태가 무조건 적으로 업데이트 됩니다.
-
         
-
+~
         이러한 상황에서 제출버튼을 누르면
         
         지금까지 추가하였던 목록 배열(arr)이 
@@ -73,7 +72,7 @@ function Q2() {
                     <button onClick={onMakeList}>제출</button>
                 </p>
                 <ul>
-                    {state ? (
+                    {view ? (
                         arr.current.map((el) => <li>{el.value}</li>)
                     ) : (
                         <p>제출된 목록이 없습니다</p>

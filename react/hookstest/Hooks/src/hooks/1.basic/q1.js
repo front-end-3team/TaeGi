@@ -6,12 +6,12 @@ function Q1() {
     문제1
     useState 및 styled-components에 관련한 문제입니다.
     아래 문제를 통해 어떠한 경우 state를 사용해야하는지 고민하여 풀어보세요
-    
+
     1-1 )
         ( O )
         문제1-1은 input의 value가 placeholder의 값과 같아졌다면
         초록색 글씨로 올바르게 입력하셨습니다가 노출됩니다.
-
+        
         ( O )
         만약 입력하지 않았다면 올바르게 글을 작성해주세요라는 문구가
         붉은색 글씨로 노출됩니다
@@ -25,8 +25,8 @@ function Q1() {
 
         반대로 숨기기 텍스트로 바뀐 button을 누르면
         p태그는 보이지 않아야합니다
-    
   */
+
     const [color, setColor] = useState("red");
     const [state, setState] = useState(false);
 
