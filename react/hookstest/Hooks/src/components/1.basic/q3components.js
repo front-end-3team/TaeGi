@@ -1,16 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 
 function Q3components({ count, setCount }) {
-    const countRef = useRef(0);
-
     useEffect(() => {
-        countRef.current = setInterval(() => {
-            setCount((prev) => prev + 2);
-            console.log(count);
+        const total = setInterval(() => {
+            setCount((count += 1));
+            console.log("aa");
         }, 2000);
         return () => {
-            clearInterval(countRef.current);
+            clearInterval(total);
             setCount(0);
+            console.log("aa");
         };
     }, []);
 
