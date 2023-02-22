@@ -23,6 +23,7 @@ function Q2() {
     const onBtnColor = () => {
         colorChange.current.style = "color : red";
     };
+
     /* 
     문제2
 
@@ -31,8 +32,7 @@ function Q2() {
 
         추가 버튼을 누르면 input에 있던 value는 배열 arr에 추가됩니다.
         그러나, 추가 버튼을 누를 때마다 강제 랜더링 상태가 무조건 적으로 업데이트 됩니다.
-        
-~
+
         이러한 상황에서 제출버튼을 누르면
         
         지금까지 추가하였던 목록 배열(arr)이 

@@ -3,7 +3,6 @@ import Q3components from "../../components/1.basic/q3components";
 
 function Q3() {
     /* 
-
     문제3
     useEffect useState에 관련한 문제입니다.
     단체 줄넘기 대회에 출전하였습니다.
@@ -21,19 +20,18 @@ function Q3() {
 
     줄넘기 중지 버튼을 누르면
     해당 컴포넌트는 보이지 않아야하며, 줄넘기 횟수도 더이상 증가해서는 안됩니다.
-    또한, 줄넘기 횟수는 0으로 고정되어야합니다.
-
-    
-  */
+    또한, 줄넘기 횟수는 0으로 고정되어야합니다
+    */
     const [view, setView] = useState(false);
     const [count, setCount] = useState(0);
 
-    const onClickStop = () => {
-        setView(false);
-    };
     const onClickStart = () => {
         setView(true);
     };
+    const onClickStop = () => {
+        setView(false);
+    };
+
     return (
         <>
             <h1>문제3</h1>
