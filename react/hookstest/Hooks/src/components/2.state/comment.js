@@ -8,6 +8,7 @@ function Comment({ post, setPost, realPost, taek }) {
     const oncontent = (e) => {
         setRealContent(e.target.value);
     };
+
     const deleteBtn = (el) => {
         window.confirm("정말 삭제 하시겠습니까?");
         {
@@ -27,7 +28,7 @@ function Comment({ post, setPost, realPost, taek }) {
         if (!el.myComment) return alert("XXX 변경 불가 XXX");
         //이거는 수정 눌렀을때
         if (el.change) {
-            //이거 change 변경
+            //이거 change 변경 후
             const newPost = { ...realPost };
             const comment = newPost.Comments.find(
                 (comment) => comment.id === el.id
@@ -36,7 +37,7 @@ function Comment({ post, setPost, realPost, taek }) {
             comment.content = realContent;
             setPost(newPost);
 
-            //이거 content 변경
+            //이거 content 변경 전
         } else {
             const newPost = { ...realPost };
             const comment = newPost.Comments.find(

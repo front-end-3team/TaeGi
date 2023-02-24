@@ -22,6 +22,7 @@ function State1() {
         setList(list.filter((el) => el.title !== title));
         console.log(title);
     };
+
     return (
         <>
             <h1>문제1</h1>

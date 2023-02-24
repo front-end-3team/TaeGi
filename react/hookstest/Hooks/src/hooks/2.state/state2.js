@@ -17,15 +17,15 @@ function State2() {
     const [inputContent, setInputContent] = useState("");
     const [inputName, setInputName] = useState("");
 
-    //input값 2개 가져오기
+    //input값 2개 가져오기 (nickname, contents)
     const inputNickname = (e) => {
         setInputName(e.target.value);
     };
-
     const inputContents = (e) => {
         setInputContent(e.target.value);
     };
 
+    //추가 버튼 클릭
     const onAddList = () => {
         const newarr = { ...post };
         const newContent = {
@@ -41,6 +41,7 @@ function State2() {
         setPost(newarr);
     };
 
+    //
     const [post, setPost] = useState({
         title: "안녕하세요 여러분 김성용 강사입니다 :)",
         content: "오늘도 모두 화이팅입니다!",

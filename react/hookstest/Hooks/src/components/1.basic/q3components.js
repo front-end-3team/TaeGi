@@ -9,7 +9,6 @@ function Q3components({ count, setCount }) {
         return () => {
             clearInterval(total);
             setCount(0);
-            console.log("aa");
         };
     }, []);
 

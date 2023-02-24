@@ -1,16 +1,16 @@
-import styled from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
-function ProductCard({ onNavigate }) {
-    return (
-        <S.Item onClick={onNavigate}>
-            <h4>구멍난 양말</h4>
-            <p>상품번호: 302012</p>
-            <p>가격: 3000원</p>
-            <p>사이즈: X, M, L</p>
-            <p>평점: 4.5</p>
-            <p>리뷰: 14</p>
+function ProductCard({ onNavigate, productLists }) {
+    return productLists.map((list) => (
+        <S.Item onClick={() => onNavigate(list)}>
+            <h4>{list.productName}</h4>
+            <p>상품번호: {list.productNumber}</p>
+            <p>가격: {Number(list.productPrice).toLocaleString()}원</p>
+            <p>사이즈: {list.productSize}</p>
+            <p>평점: {list.productRating}</p>
+            <p>리뷰: {list.productReview}</p>
         </S.Item>
-    );
+    ));
 }
 
 export default ProductCard;
