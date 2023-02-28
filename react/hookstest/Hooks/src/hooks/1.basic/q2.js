@@ -14,6 +14,7 @@ function Q2() {
     };
 
     const onMakeList = () => {
+        if (!arr.current[0]) return;
         setView(true);
     };
 
