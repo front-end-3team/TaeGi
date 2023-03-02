@@ -18,27 +18,6 @@ const ReducerQ1Page = () => {
           src/store/1_reducer.js에 구현해보세요
     */
 
-    const onSubmit = (e) => {
-        e.preventDefault();
-        dispatch({
-            type: "ADD",
-            payload: {
-                id: ingredients.length + 1,
-                name: e.target.name.value,
-                price: e.target.price.value,
-            },
-        });
-    };
-
-    const onClickDel = (object) => {
-        dispatch({
-            type: "DELETE",
-            payload: {
-                id: object.id,
-            },
-        });
-    };
-
     const [ingredients, dispatch] = useReducer(reducer, [
         { id: 1, name: "피자 도우", price: 1000 },
         { id: 2, name: "토마토 소스", price: 500 },
@@ -47,6 +26,31 @@ const ReducerQ1Page = () => {
         { id: 5, name: "양파", price: 500 },
     ]);
 
+    const onClickAdd = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const price = e.target.price.value;
+
+        dispatch({
+            type: "ADD",
+            payload: {
+                id: ingredients.length + 1,
+                name,
+                price,
+            },
+        });
+    };
+
+    const onClickRemove = (e) => {
+        const id = e;
+
+        dispatch({
+            type: "DELETE",
+            payload: {
+                id,
+            },
+        });
+    };
     return (
         <>
             <h2>문제 1</h2>
@@ -57,9 +61,12 @@ const ReducerQ1Page = () => {
                         <th>가격</th>
                     </tr>
                 </thead>
-                <ReducerQ1List ingredients={ingredients} onClick={onClickDel} />
+                <ReducerQ1List
+                    ingredients={ingredients}
+                    onClickRemove={onClickRemove}
+                />
             </table>
-            <Q1Form onSubmit={onSubmit} />
+            <Q1Form onClickAdd={onClickAdd} />
             <NavigateButton isFistPage to={"/2_context/q1"} />
         </>
     );

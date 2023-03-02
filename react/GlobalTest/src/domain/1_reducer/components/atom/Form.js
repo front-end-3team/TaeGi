@@ -1,6 +1,6 @@
-const Q1Form = ({ onSubmit }) => {
+const Q1Form = ({ onClickAdd }) => {
     return (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onClickAdd}>
             <label>
                 <input type="text" name="name" placeholder="재료" />
             </label>
