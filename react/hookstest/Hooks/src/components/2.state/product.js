@@ -2,7 +2,7 @@ import styled, { createGlobalStyle } from "styled-components";
 
 function ProductCard({ onNavigate, productLists }) {
     return productLists.map((list) => (
-        <S.Item onClick={() => onNavigate(list)}>
+        <S.Item onClick={() => onNavigate(list.productNumber)}>
             <h4>{list.productName}</h4>
             <p>상품번호: {list.productNumber}</p>
             <p>가격: {Number(list.productPrice).toLocaleString()}원</p>

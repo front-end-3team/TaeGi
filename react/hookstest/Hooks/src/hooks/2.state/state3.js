@@ -42,10 +42,10 @@ function State3() {
     const [productLists, setProductLists] = useState(productList.products);
     // let a = Number(productLists.products[0].productPrice);
 
-    const navigate = useNavigate();
+    const navigate = useggNavigate();
 
     const onNavigateDetailPage = (el) => {
-        navigate(`/state/detail/${el.productNumber}`);
+        navigate(`/state/detail/${el}`);
     };
 
     return (
