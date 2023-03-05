@@ -8,7 +8,6 @@ const ContextQ1Detail = () => {
     return (
         <>
             <h2>ContextQ1Detail</h2>
-
             <button onClick={() => setIsModalOpen((prev) => !prev)}>
                 {isModalOpen ? "숨기기" : "보이기"}
             </button>

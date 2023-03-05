@@ -16,25 +16,21 @@ const ContextQ1Page = () => {
         5) 단, useReducer를 사용하지 않고 state만을 관리합니다. (useReducer는 다음 문제에서 사용합니다.)
         src/stor/2_context.js 파일에 context를 구현해주세요
     */
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
     // 위의 상태를 전역으로 관리하여 ContextQ1Detail, ContextQ1Detail2 두 컴포넌트의 보이기 버튼이 눌려도 모달창이 열릴 수 있도록 해주세요 :)
     // const isModalOpen1 = useContext(view);
-
+    const { isModalOpen } = useContext(view);
     return (
-        <view.Provider value={{ isModalOpen, setIsModalOpen }}>
-            <>
-                {/* <Context> */}
-                {
-                    <div>
-                        {isModalOpen && <ContextQ1Modal />}
-                        <h2>문제 2 - 1</h2>
-                        <ContextQ1Detail />
-                        <NavigateButton to={"/2_context/q2"} />
-                    </div>
-                }
-                {/* </Context> */}
-            </>
-        </view.Provider>
+        <>
+            {
+                <div>
+                    {isModalOpen && <ContextQ1Modal />}
+                    <h2>문제 2 - 1</h2>
+                    <ContextQ1Detail />
+                    <NavigateButton to={"/2_context/q2"} />
+                </div>
+            }
+        </>
     );
 };
 export default ContextQ1Page;
