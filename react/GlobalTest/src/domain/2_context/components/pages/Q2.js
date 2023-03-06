@@ -1,12 +1,12 @@
 import NavigateButton from "../../../../components/NavigateButton";
 import ContextQ2Form from "../atom/Q2/Form";
 import ContextQ2Form3 from "../atom/Q2/Form3";
-import { list } from "../../../../store/3_context";
+import { list, viewState } from "../../../../store/3_context";
 import { useContext, useState } from "react";
 
 const ContextQ2Page = () => {
     const { userList, setUserList } = useContext(list);
-    const [stateSubmit, setStateSubmit] = useState(false);
+    const { stateSubmit, setStateSubmit } = useContext(viewState);
     /*
       문제 2 - 2
       1. Form1에서 값을 입력하면 userList에 데이터가 추가되도록 구현해보세요.
@@ -53,7 +53,6 @@ const ContextQ2Page = () => {
                             </div>
                         )
                 )}
-                ;
             </div>
             <NavigateButton to={"/3_redux/q1"} />
         </>

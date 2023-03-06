@@ -1,11 +1,12 @@
 import { useContext } from "react";
-import { list } from "../../../../../store/3_context";
+import { list, viewState } from "../../../../../store/3_context";
 
 const ContextQ2Form3 = () => {
-    const { userList, setUserList } = useContext(list);
-
+    const { setUserList } = useContext(list);
+    const { setStateSubmit } = useContext(viewState);
     const onReset = () => {
         setUserList([]);
+        setStateSubmit(false);
     };
 
     return (
