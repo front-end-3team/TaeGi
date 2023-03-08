@@ -5,7 +5,7 @@ import PostForm from "../atom/Post/Form";
 import AllPosts from "../atom/Posts";
 
 const ReduxQ1Page = () => {
-  /* 
+    /* 
         문제 3
 
         1) 이전에 주어졌던 토이프로젝트에 데이터입니다.
@@ -28,17 +28,17 @@ const ReduxQ1Page = () => {
             src/store/4_redux.js에 구현해주세요.
   */
 
-  const [Posts, setPosts] = useState(MockPosts(10));
-  const onSubmit = (e) => {
-    console.log("submit");
-  };
+    const [Posts, setPosts] = useState(MockPosts(10));
+    const onSubmit = (e) => {
+        console.log("submit");
+    };
 
-  return (
-    <div>
-      <PostForm onSubmit={onSubmit} />
-      <AllPosts posts={Posts} />
-      <NavigateButton isLastPage />
-    </div>
-  );
+    return (
+        <div>
+            <PostForm onSubmit={onSubmit} />
+            <AllPosts posts={Posts} />
+            <NavigateButton isLastPage />
+        </div>
+    );
 };
 export default ReduxQ1Page;

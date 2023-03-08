@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { list } from "../../../../../store/3_context";
 const ContextQ2Form2 = () => {
-    const { userList, setUserList } = useContext(list);
+    const { userList } = useContext(list);
     const onClickStatus = () => {
         userList.map((el) => (el.isEdit = true));
     };

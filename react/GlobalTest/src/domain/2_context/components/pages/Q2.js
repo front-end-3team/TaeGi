@@ -2,10 +2,10 @@ import NavigateButton from "../../../../components/NavigateButton";
 import ContextQ2Form from "../atom/Q2/Form";
 import ContextQ2Form3 from "../atom/Q2/Form3";
 import { list, viewState } from "../../../../store/3_context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 const ContextQ2Page = () => {
-    const { userList, setUserList } = useContext(list);
+    const { userList } = useContext(list);
     const { stateSubmit, setStateSubmit } = useContext(viewState);
     /*
       문제 2 - 2
